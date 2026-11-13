@@ -1,0 +1,40 @@
+{
+  "name": "CGIS React Training",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    // Same Node version the workshop pins for local Windows installs
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24.22.2"
+    }
+  },
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "React app",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    },
+    "vscode": {
+      // A leading "-" stops Codespaces from installing these by default
+      "extensions": [
+        "-GitHub.copilot",
+        "-GitHub.copilot-chat",
+        "oxc.oxc-vscode"
+      ],
+      // AI settings are repeated in .vscode/settings.json (workspace settings win over user settings)
+      "settings": {
+        "chat.disableAIFeatures": true,
+        "chat.agent.enabled": false,
+        "chat.commandCenter.enabled": false,
+        "github.copilot.enable": { "*": false },
+        "github.copilot.nextEditSuggestions.enabled": false,
+        "editor.inlineSuggest.enabled": false
+      }
+    }
+  }
+}
