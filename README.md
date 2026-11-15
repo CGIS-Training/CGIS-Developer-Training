@@ -18,6 +18,18 @@ AI features (GitHub Copilot, Copilot Chat, inline suggestions) are turned off in
 
 4. The app opens in a new browser tab. If it doesn't, open the **Ports** tab and click the globe icon next to port **5173**.
 
+### Come back the next day
+
+Your codespace keeps your files, so open the same one every day. Don't create a new one: a new codespace starts without your work.
+
+1. On the repository page, click **Code**, then **Codespaces**.
+2. Click the codespace in the list. It has a made-up name, such as `shiny-space-robot`.
+3. When it opens, type `npm run dev` in the terminal and press **Enter**.
+
+- A codespace stops by itself after 30 minutes without use. Your files are still there when you open it again.
+- Don't delete your codespace before the end of the week. Deleting it deletes your work.
+- You can also find your codespace at `github.com/codespaces`.
+
 ## Start the project on your own computer
 
 You need Node.js 24 installed first. The workshop's setup guide has the steps.
@@ -41,6 +53,7 @@ You need Node.js 24 installed first. The workshop's setup guide has the steps.
 ## While you work
 
 - Leave `npm run dev` running in its terminal. When you save a file, the page in the browser updates by itself.
+- Files save by themselves about a second after you stop typing.
 - To stop it, click in that terminal and press **Ctrl + C**.
 
 ## Your work and the solutions
