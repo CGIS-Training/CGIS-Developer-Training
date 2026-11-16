@@ -65,6 +65,7 @@ Each day has two folders:
 | `src/labs/day1` | **Your work** for the Day 1 lab. This is where you write code. |
 | `src/solutions/day1` | The **finished** Day 1 lab. It arrives in the next morning's update. Read it; don't edit it. |
 
+- Each lab folder has a `README.md` with the lab's steps. To read it with its formatting, right-click the file and choose **Open Preview**.
 - Each day starts in a new folder that already works, so you never fall behind. Your code from the day before stays in its own folder, as you left it.
 - If you are stuck on one step, open the same file in the solution folder and compare it with yours. You can copy that one file into your folder and keep the rest of your own code.
 - The two folders have files with the same names. Before you type, check the folder name beside the file name on the editor's tab.
