@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client'
 //   './solutions/day1/App'   the finished Day 1 lab, once you have it
 // For another day, change the number: './labs/day2/App'
 // import App from './labs/day1/App'
-import App from './labs/day2/App'
+import App from './labs/day3/App'
 
 // The starting point: puts our App component on the page, inside the "root" element in index.html
 createRoot(document.getElementById('root')!).render(
