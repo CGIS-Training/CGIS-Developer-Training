@@ -1,0 +1,284 @@
+/*
+  The styles for the City Viewer app. They are already written, so the labs can stay on React.
+
+  To style an element, give it one of the class names below: <div className="app">
+  Every rule starts with .app, so the outermost element of the app needs className="app".
+
+  The shell
+    app                the whole page: a header across the top, a sidebar on the left, the map in the rest
+    app-header         the dark bar across the top. Put the app's name in an <h1> inside it.
+    app-sidebar        the column on the left
+    map-area           the space for the map. An <arcgis-map> inside it fills the space.
+    map-placeholder    grey text in the middle of the map area
+
+  Panels
+    panel              a section of the sidebar. Put its name in an <h2> inside it.
+    empty              grey text for a message such as "This map has no layers"
+    visible-count      the "3 of 5 layers visible" line
+
+  The layer list
+    layer-list         the list itself (a <ul>)
+    layer-row          one row (a <li>). Add "selected" for the selected row: className="layer-row selected"
+    layer-row-button   the part of a row you click to select it (a <button>)
+    layer-title        the layer's title. A <small> beside it is styled for the layer's type.
+
+  The details
+    layer-details      the list of details (a <dl>, with a <dt> and a <dd> for each line)
+    address            a long web address inside the details
+
+  New for Day 3
+    A <button> in the header, or in the map area beside the map, is styled already. It needs no class name.
+    row-action         a small button at the end of a layer's row, such as "Show / hide" or "Zoom to"
+    layer-actions      a group of buttons under the layer list (a <div>, with a <button> for each)
+
+  New for Day 4
+    request-toggle     a checkbox with its words beside it (a <label>, with an <input type="checkbox"> inside)
+    status-form        the form for changing a request's status (a <div>). The handout already uses it.
+    A <calcite-notice> inside a panel is spaced already. It needs no class name.
+*/
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'header header'
+    'sidebar map';
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #141414;
+  background: #ffffff;
+}
+
+.app h1,
+.app h2,
+.app p,
+.app ul,
+.app dl,
+.app dd {
+  margin: 0;
+  padding: 0;
+}
+
+.app ul {
+  list-style: none;
+}
+
+/* Shell */
+
+.app .app-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #141414;
+  color: #ffffff;
+}
+
+.app .app-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.app .app-sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+  border-right: 1px solid #d6d6d6;
+  overflow-y: auto;
+}
+
+.app .map-area {
+  grid-area: map;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #e8e8e7;
+}
+
+/* The map takes all the height the map area has left. Without a height, a map is 0 pixels tall. */
+.app .map-area arcgis-map {
+  flex: 1;
+  min-height: 0;
+}
+
+.app .map-placeholder {
+  margin: auto;
+  font-size: 20px;
+  color: #6b6b6b;
+}
+
+/* Panels */
+
+.app .panel h2 {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.app .empty {
+  color: #6b6b6b;
+}
+
+.app .visible-count {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Layer list */
+
+.app .layer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app .layer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+}
+
+.app .layer-row.selected {
+  border-color: #12805a;
+  background: #e6f9f4;
+}
+
+.app .layer-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: #12805a;
+}
+
+.app .layer-row-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.app .layer-title {
+  font-weight: 600;
+}
+
+.app .layer-row small {
+  font-size: 12px;
+  color: #6b6b6b;
+}
+
+/* Details */
+
+.app .layer-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+}
+
+.app .layer-details dt {
+  color: #6b6b6b;
+}
+
+.app .layer-details .address {
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+/* Buttons (new for Day 3) */
+
+.app .app-header button,
+.app .map-area > button,
+.app .row-action,
+.app .layer-actions button {
+  padding: 4px 10px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.app .app-header button:disabled,
+.app .row-action:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.app .map-area > button {
+  align-self: flex-start;
+  margin: 8px;
+}
+
+.app .row-action {
+  padding: 3px 7px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* A row with buttons at its end needs less space between its parts */
+.app .layer-row:has(.row-action) {
+  gap: 6px;
+}
+
+.app .layer-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* The requests (new for Day 4) */
+
+.app .request-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.app .request-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: #12805a;
+}
+
+.app .status-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.app .status-form calcite-select {
+  width: 100%;
+}
+
+.app .panel calcite-notice {
+  margin-bottom: 10px;
+}
